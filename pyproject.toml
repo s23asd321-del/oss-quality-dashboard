@@ -9,7 +9,7 @@ description = "Local-first open source repository quality dashboard."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
-authors = [{ name = "oss-quality-dashboard contributors" }]
+authors = [{ name = "s23asd321-del" }]
 dependencies = [
   "fastapi",
   "uvicorn",
@@ -33,4 +33,3 @@ oss_quality_dashboard = ["static/*.html", "static/*.css", "static/*.js"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-

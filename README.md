@@ -163,6 +163,11 @@ See `ROADMAP.md`. Future work may add adapters for existing local CLI tools, ric
 
 See `CONTRIBUTING.md`. New rules should include tests and must preserve the local-first safety model.
 
+## Contributors
+
+- s23asd321-del: project owner and maintainer
+- OpenAI Codex: AI-assisted development support.
+
 ## Security
 
 See `SECURITY.md`. Do not post real tokens, private repository paths, or raw logs in public issues.
