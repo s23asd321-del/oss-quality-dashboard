@@ -1,0 +1,16 @@
+name: Fixture CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  fixture:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fixture placeholder
+        run: echo "fixture only"
+

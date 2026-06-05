@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oss-quality-dashboard"
+version = "0.1.0"
+description = "Local-first open source repository quality dashboard."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "oss-quality-dashboard contributors" }]
+dependencies = [
+  "fastapi",
+  "uvicorn",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "httpx",
+]
+
+[project.scripts]
+oss-dashboard = "oss_quality_dashboard.app:main"
+oss-quality = "oss_quality_dashboard.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["oss_quality_dashboard*"]
+
+[tool.setuptools.package-data]
+oss_quality_dashboard = ["static/*.html", "static/*.css", "static/*.js"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+

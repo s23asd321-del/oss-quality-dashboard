@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OSS Quality Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Local-first repository checks</p>
+        <h1>OSS Quality Dashboard</h1>
+      </div>
+      <div class="health" id="health">Checking local service...</div>
+    </header>
+
+    <main class="layout">
+      <section class="notice">
+        <strong>Local safety boundary:</strong>
+        scans run only for directories you add, results stay in local SQLite storage, and this tool does not upload files or run scanned repository scripts.
+      </section>
+
+      <section class="summary-grid" id="summaryCards">
+        <div class="summary-card"><span>Projects</span><strong id="projectCount">0</strong></div>
+        <div class="summary-card"><span>Scans</span><strong id="scanCount">0</strong></div>
+        <div class="summary-card"><span>Average score</span><strong id="averageScore">-</strong></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>Add project</h2>
+        </div>
+        <form id="projectForm" class="project-form">
+          <label>
+            Name
+            <input id="projectName" name="name" required placeholder="repo-readiness-kit" />
+          </label>
+          <label>
+            Local path
+            <input id="projectPath" name="path" required placeholder="/path/to/local/repo" />
+          </label>
+          <button type="submit">Add project</button>
+        </form>
+        <p class="error" id="formError" role="alert"></p>
+      </section>
+
+      <section class="content-grid">
+        <div class="panel">
+          <div class="panel-heading">
+            <h2>Projects</h2>
+            <button id="refreshButton" type="button">Refresh</button>
+          </div>
+          <div id="projects" class="project-list"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-heading">
+            <h2>Recent scan</h2>
+            <a id="reportLink" class="report-link hidden" href="#">Report.md</a>
+          </div>
+          <div id="scanDetails" class="scan-details empty">No scan selected.</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>Findings</h2>
+          <div id="severityStats" class="severity-stats"></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Severity</th>
+                <th>Rule</th>
+                <th>Path</th>
+                <th>Finding</th>
+                <th>Recommendation</th>
+              </tr>
+            </thead>
+            <tbody id="findingsTable">
+              <tr><td colspan="5" class="empty">Run a scan to see findings.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
+

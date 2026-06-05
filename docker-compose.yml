@@ -1,0 +1,10 @@
+services:
+  dashboard:
+    build: .
+    command: ["python", "-m", "oss_quality_dashboard.app", "--host", "0.0.0.0", "--port", "8000"]
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./examples:/workspace/examples:ro
+
